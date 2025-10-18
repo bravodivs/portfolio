@@ -6,6 +6,7 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Gallery from './components/Gallery'
 import Contact from './components/Contact'
+import HeroSection from './components/HeroSection'
 
 
 export default function App(){
@@ -17,7 +18,7 @@ return (
 <Sidebar active={active} setActive={setActive} />
 <main className="content">
 <section id="home" style={{display: active==='home'?'block':'none'}}>
-<Hero onExplore={() => setActive('about')} />
+<HeroSection onExplore={() => setActive('about')} />
 </section>
 <section id="about" style={{display: active==='about'?'block':'none'}}>
 <About />
