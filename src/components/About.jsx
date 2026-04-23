@@ -1,9 +1,10 @@
 import React from 'react'
+import "../styles/about.css"
 
 
 export default function About() {
     return (
-        <div className="section narrative">
+        <div className="section narrative about">
             <h2>About</h2>
             <div className="story">
                 <p>My journey began with Java and Spring Boot in college. I loved understanding how systems worked — from request routing to database mappings.</p>

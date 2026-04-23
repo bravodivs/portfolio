@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(120deg, #072157, #031f58);
+  background: linear-gradient(120deg, #051944, #02143a);
   position: relative;
   overflow: hidden;
   color: #e4e7eb;
@@ -46,17 +46,44 @@
 }
 
 .scroll-indicator {
-  display: inline-block;
-  margin-top: 2rem;
-  font-size: 1rem;
-  color: #1e3a8a;
+  /* Fixed at bottom center of the viewport */
+  position: relative;
+  left: 100%;
+  transform: translateX(-50%) translateY(0);
+  bottom: -428px;
+  z-index: 1000;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+
+  font-size: 0.95rem;
+  color: #9fa3b1;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 .scroll-indicator:hover {
-  border-color: #1e3a8a;
+  /* raise slightly on hover */
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.18);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Make spacing friendlier on small screens */
+@media (max-width: 600px) {
+  .scroll-indicator {
+    bottom: 18px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
 }
 
 .hero-photo {

@@ -1,0 +1,84 @@
+
+
+.circle-container {
+  position: fixed;
+  top: 100px;
+  left: 30px;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.expandable-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  background: #1f2937;
+  border-radius: 60px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.circle-container:hover .expandable-pill {
+  height: 430px;
+  border-radius: 60px;
+}
+
+.profile-image {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.links-container {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  width: 100%;
+  padding: 0 20px 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
+
+  ul, li {
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.circle-container:hover .links-container {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.2s;
+}
+
+.nav-link {
+  display: block;
+  padding: 12px 0;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  background: #f0f0f0;
+  color: #764ba2;
+  transform: translateX(2px);
+}
+
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 0 10px;
+}

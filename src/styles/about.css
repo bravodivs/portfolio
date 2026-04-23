@@ -1,0 +1,35 @@
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* push children to the right */
+    text-align: right;
+    padding: 0 12px;
+}
+
+.about .story,
+.about .quick-stats {
+    /* keep content at a readable max width and align it to the right */
+    max-width: 720px;
+    width: 100%;
+    margin-left: auto; /* push block to the right inside the full-width section */
+}
+
+.about .quick-stats {
+    justify-content: flex-end; /* keep the stat cards flush to the right */
+}
+
+/* Responsive: on smaller viewports stack/left-align so it remains readable */
+@media (max-width: 900px) {
+    .about {
+        align-items: stretch;
+        text-align: left;
+    }
+    .about .story,
+    .about .quick-stats {
+        margin-left: 0;
+        max-width: 100%;
+    }
+    .about .quick-stats {
+        justify-content: flex-start;
+    }
+}

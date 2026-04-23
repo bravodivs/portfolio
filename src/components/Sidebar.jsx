@@ -1,40 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import "../Sidebar.css";
 import profile2 from '../assets/profile2.jpg';
 
-const links = [
-    { id: 'home', label: 'Home', icon: '🏠' },
-    { id: 'about', label: 'About', icon: '👋' },
-    { id: 'experience', label: 'Experience', icon: '💼' },
-    { id: 'projects', label: 'Projects', icon: '🧩' },
-    { id: 'gallery', label: 'Gallery', icon: '📸' },
-    { id: 'contact', label: 'Contact', icon: '✉️' },
-]
+const Sidebar = () => {
+  const [expanded, setExpanded] = useState(false);
+  
+  useEffect(() => {
+    // Expand on page entry, collapse after 5s
+    setExpanded(true);
+    const timer = setTimeout(() => setExpanded(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
+  const expand = () => setExpanded(true);
+  const notExpand = () => setExpanded(false);
 
-export default function Sidebar({ active, setActive }) {
-    return (
-        <aside className="sidebar">
-            <div className="profile">
-                <img src={profile2} alt="profile" className="avatar" />
-                <h2 className="name">Devanshu Verma</h2>
-                <p className="role">Full-Stack Developer</p>
-            </div>
+  return (
+    <motion.div
+      className="sidebar-container"
+      animate={{
+        width: expanded ? 100 : 70,
+        height: expanded ? 340 : 70,
+        borderRadius: expanded ? "50px" : "50%",
+      }}
+      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+      onHoverStart={expand}
+      onHoverEnd={notExpand}
+    >
+      {/* Avatar stays fixed at top */}
+      <div className="profile-bubble">
+        <img src={profile2} alt="profile picture" />
+      </div>
 
+      {/* Links appear below the image */}
+      <AnimatePresence>
+        {expanded && (
+          <motion.ul
+            className="nav-links"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, delay: 0.15 }}
+          >
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#experience">Experience</a></li>
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
 
-            <nav className="nav">
-                {links.map(l => (
-                    <button key={l.id} className={`nav-btn ${active === l.id ? 'active' : ''}`} onClick={() => setActive(l.id)} title={l.label}>
-                        <span className="icon" aria-hidden>{l.icon}</span>
-                        <span className="label">{l.label}</span>
-                    </button>
-                ))}
-            </nav>
-
-
-            <div className="socials">
-                <a href="#" aria-label="github">GH</a>
-                <a href="#" aria-label="linkedin">LI</a>
-            </div>
-        </aside>
-    )
-}
+export default Sidebar;

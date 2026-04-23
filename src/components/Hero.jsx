@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import '../assets/HeroSection.css';
+import '../HeroSection.css';
 
 
 export default function Hero({ onExplore }) {

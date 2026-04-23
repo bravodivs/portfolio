@@ -1,0 +1,35 @@
+.social-links {
+  position: fixed;
+  bottom: 0;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.social-links li {
+  margin: 12px 0;
+}
+
+.social-links a {
+  color: #94a3b8; /* muted gray-blue */
+  font-size: 22px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.social-line {
+  width: 1px;
+  height: 100px;
+  background-color: #475569;
+  margin-top: 16px;
+  opacity: 0.6;
+}

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import '../HeroSection.css';
+import '../styles/HeroSection.css';
 import profile from '../assets/profile.jpg';
 
 const HeroSection = () => {
@@ -18,8 +18,8 @@ const HeroSection = () => {
         };
 
         const createParticles = () => {
-            // more particles: roughly 1 per 10px width
-            const total = Math.floor(window.innerWidth / 5);
+            // more particles: roughly 1 per 5px width
+            const total = Math.floor(window.innerWidth / 3);
             particles = [];
             for (let i = 0; i < total; i++) {
                 particles.push({
@@ -155,7 +155,7 @@ const HeroSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.4 }}
                 >
-                    <img src={profile} alt="Devanshu" />
+                    <img src={profile} alt="profile-photo" />
                 </motion.div>
             </div>
 
